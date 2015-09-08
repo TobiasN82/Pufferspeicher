@@ -1,5 +1,7 @@
 # Pufferspeicher
-Mit den Files soll es möglich sein:
+<hr>
+<hr>
+# Mit den Files soll es möglich sein:
 <hr>
 1. Temperaturwerte von zwei DS18B20 Sensoren auszulesen
 <hr>
@@ -17,7 +19,7 @@ Mit den Files soll es möglich sein:
 <hr>
 
 <hr>
-weitere Ideen:
+# weitere Ideen:
 <hr>
 - Einbinden von Instapush (Notification auf Smartphone)
 <hr>
@@ -25,7 +27,7 @@ weitere Ideen:
 
 <hr>
 <hr>
-Ablauf für das Einrichten:
+# Ablauf für das Einrichten:
 <hr>
 1.) Sensoren am Pufferspeicher anbringen
 <hr>
