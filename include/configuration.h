@@ -10,11 +10,9 @@
 	#define WIFI_PWD "75151423810134506770"
 #endif
 
-// Pin for communication with DHT sensor
-//#define DHT_PIN 1 // UART0 TX pin
-//#define DHT_PIN 12
-#define WORK_PIN1 12 // GPIO0
-#define WORK_PIN2 5 // GPIO0
+// Pin for communication with DS18B20 sensor
+#define WORK_PIN1 12 // GPIO12
+#define WORK_PIN2 5 // GPIO5
 
 // Pin for trigger control output
 //#define CONTROL_PIN 3 // UART0 RX pin
@@ -40,7 +38,7 @@ struct MeteoConfig
 		RangeMin = 18;
 		RangeMax = 29;
 ///////////////////////////////////////////
-// evtl. noch Trigger f�r die zweite Temperatur einf�gen
+// evtl. noch Trigger f�r die zweite Temperatur einfuegen
 //////////////////////////////////////////
 	}
 

@@ -151,7 +151,7 @@ void process()
 	temp2 = (float)raw2 / 16.0;
 	Serial.print("  Temperature2 = ");
 	Serial.print(temp2);	
-	Serial.print(" Celsius2, ");
+	Serial.print(" Celsius, ");
 	Serial.println();
 
 	float t1 = temp1 + ActiveConfig.AddT1;
@@ -165,6 +165,14 @@ void process()
 //	digitalWrite(CONTROL_PIN, state);
 	StrT1 = String(t1, 0);
 	StrT2 = String(t2, 0);
+	
+	Serial.print("  Temperature1 neu = ");
+	Serial.print(t1);
+	Serial.print(" Celsius, ");
+	Serial.print("  Temperature2 neu = ");
+	Serial.print(t2);	
+	Serial.print(" Celsius, ");
+	Serial.println();
 
 }
 
