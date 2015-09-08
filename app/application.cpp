@@ -1,32 +1,15 @@
 #include <user_config.h>
 #include <SmingCore/SmingCore.h>
-//#include <Libraries/LiquidCrystal/LiquidCrystal_I2C.h>
-//#include <Libraries/DHT/DHT.h>
 #include <Libraries/OneWire/OneWire.h> //DS18B20
-
-///////////////////////////////////////////////////////////////////
-// Set your SSID & Pass for initial configuration
 #include "../include/configuration.h" // application configuration
-///////////////////////////////////////////////////////////////////
-
 #include "special_chars.h"
 #include "webserver.h"
 
-//DHT dht(DHT_PIN, DHT11);
-
-//#define WORK_PIN1 12 // GPIO0
-//#define WORK_PIN2 5 // GPIO0
-
-OneWire ds1(WORK_PIN1);
-OneWire ds2(WORK_PIN2);
-
-// For more information visit useful wiki page: http://arduino-info.wikispaces.com/LCD-Blue-I2C
-// Standard I2C bus pins: GPIO0 -> SCL, GPIO2 -> SDA
-//#define I2C_LCD_ADDR 0x27
-//LiquidCrystal_I2C lcd(I2C_LCD_ADDR, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
+OneWire ds1(WORK_PIN1); // Sensor 1
+OneWire ds2(WORK_PIN2); // Sensor 2
 
 Timer procTimer;
-//Timer displayTimer;
+
 bool state = true;
 // Sensors string values
 String StrT1, StrT2, StrTime;
@@ -45,20 +28,8 @@ void init()
 	// Select control line
 	//pinMode(CONTROL_PIN, OUTPUT);
 
-	// DHT sensor start
-	//dht.begin();
 	ds1.begin(); // It's required for one-wire initialization!
 	ds2.begin();
-
-	//lcd.begin(16, 2);
-	//lcd.backlight();
-	//lcd.createChar(1, icon_termometer);
-	//lcd.createChar(2, icon_water);
-	//lcd.createChar(3, celsius);
-	//lcd.createChar(4, icon_retarrow);
-	//lcd.createChar(5, icon_clock);
-	//lcd.createChar(6, icon_cross);
-	//lcd.createChar(7, icon_check);
 
 	WifiStation.config(ActiveConfig.NetworkSSID, ActiveConfig.NetworkPassword);
 	WifiStation.enable(true);
@@ -69,31 +40,6 @@ void init()
 	procTimer.initializeMs(5000, process).start();
 	process();
 }
-
-//void showValues()
-//{
-//	lcd.setCursor(0,0);
-	// Output time, if it was loaded from remote server
-//	if (StrTime.length() > 0)
-//	{
-//		lcd.print(StrTime);
-//		lcd.setCursor(0,1);
-//		lcd.print("  ");
-//	}
-//	lcd.print("\1 ");
-
-//	lcd.print(StrT);
-//	lcd.print("\3C ");
-
-//	if (StrTime.length() == 0)
-//	{
-//		lcd.print("                 "); // Clear line end
-//		lcd.setCursor(0,1);
-//	}
-//	lcd.print("\2 ");
-//	lcd.print(StrRH);
-//	lcd.print("%                 ");  // Clear line end
-//}
 
 void process()
 {
@@ -220,20 +166,13 @@ void process()
 	StrT1 = String(t1, 0);
 	StrT2 = String(t2, 0);
 
-//	if (!displayTimer.isStarted())
-//		displayTimer.initializeMs(1000, showValues).start();	
 }
 
 void connectOk()
 {
 	debugf("connected");
 	WifiAccessPoint.enable(false);
-//	lcd.clear();
-//	lcd.print("\7 ");
-//	lcd.print(WifiStation.getIP().toString());
-	// Restart main screen output
 	procTimer.restart();
-//	displayTimer.stop();
 
 	startWebClock();
 	// At first run we will download web server content
@@ -250,14 +189,6 @@ void connectFail()
 	WifiAccessPoint.enable(true);
 	// Stop main screen output
 	procTimer.stop();
-//	displayTimer.stop();
-//	lcd.clear();
-
-//	lcd.setCursor(0,0);
-//	lcd.print("WiFi MeteoConfig");
-//	lcd.setCursor(0,1);
-//	lcd.print("  ");
-//	lcd.print(WifiAccessPoint.getIP());
 
 	startWebServer();
 	WifiStation.waitConnection(connectOk); // Wait connection
