@@ -148,11 +148,14 @@ void downloadContentFiles()
 	downloadClient.reset(); // Reset current download status
 
 	if (dowfid == 0)
-		downloadClient.downloadFile("http://simple.anakod.ru/templates/MeteoControl/MeteoControl.html", "index.html");
+//		downloadClient.downloadFile("http://simple.anakod.ru/templates/MeteoControl/MeteoControl.html", "index.html");
+		downloadClient.downloadFile("https://raw.githubusercontent.com/TobiasN82/Pufferspeicher/master/web/MeteoControl.html", "index.html");
 	else if (dowfid == 1)
-		downloadClient.downloadFile("http://simple.anakod.ru/templates/MeteoControl/MeteoConfig.html", "config.html");
+//		downloadClient.downloadFile("http://simple.anakod.ru/templates/MeteoControl/MeteoConfig.html", "config.html");
+		downloadClient.downloadFile("https://raw.githubusercontent.com/TobiasN82/Pufferspeicher/master/web/MeteoConfig.html", "config.html");
 	else if (dowfid == 2)
-		downloadClient.downloadFile("http://simple.anakod.ru/templates/MeteoControl/MeteoAPI.html", "api.html");
+//		downloadClient.downloadFile("http://simple.anakod.ru/templates/MeteoControl/MeteoAPI.html", "api.html");
+		downloadClient.downloadFile("https://raw.githubusercontent.com/TobiasN82/Pufferspeicher/master/web/MeteoAPI.html", "api.html");
 	else if (dowfid == 3)
 		downloadClient.downloadFile("http://simple.anakod.ru/templates/bootstrap.css.gz");
 	else if (dowfid == 4)
