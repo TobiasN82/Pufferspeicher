@@ -22,3 +22,24 @@ weitere Ideen:
 - Einbinden von Instapush (Notification auf Smartphone)
 <hr>
 - Einbinden von Twilio (SMS-Benachrichtigung) 
+
+<hr>
+<hr>
+Ablauf für das Einrichten:
+<hr>
+1.) Sensoren am Pufferspeicher anbringen
+<hr>
+2.) Netzteil einstecken
+<hr>
+3.) WLAN auswaehlen und im Browser auf die IP zugreifen 192.168.4.1
+<hr>
+4.) verfügbare WLAN-Netze suchen und anmelden
+<hr>
+5.) Netzteil aus- und wiedereinstecken
+<hr>
+6.) IP-Adresse mit Fing (Android, iPhone, Windows, Mac, Linux) suchen
+<hr>
+7.) IP-Adresse im Browser eingeben
+<hr> 
+ggf. noch weitere Einstellungen vornehmen (Thingspeak etc.)
+
